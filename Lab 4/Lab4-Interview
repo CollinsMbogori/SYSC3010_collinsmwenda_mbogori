@@ -1,0 +1,19 @@
+import sense_hat
+
+sense = sense_hat.SenseHat()
+w = (255, 255, 255)
+toggle = True 
+counter = 1
+sense.clear()
+while True:
+  for event in sense.stick.get_events():
+    counter +=1
+    if event.action == "pressed" and toggle == True and counter == 2 :
+      sense.show_letter("T")
+      toggle = False
+      counter = 1
+    elif event.action == "pressed" and toggle == False and counter == 2:
+      sense.show_letter("A")
+      toggle = True
+      counter = 1
+        
